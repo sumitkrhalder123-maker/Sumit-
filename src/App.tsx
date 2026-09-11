@@ -5,8 +5,6 @@ import { AboutSection } from './components/AboutSection';
 import { SkillsSection } from './components/SkillsSection';
 import { ProjectsSection } from './components/ProjectsSection';
 import { ProjectModal } from './components/ProjectModal';
-import { UploadWorkModal } from './components/UploadWorkModal';
-import { DataSyncModal } from './components/DataSyncModal';
 import { ExperienceSection } from './components/ExperienceSection';
 import { EducationAchievementsSection } from './components/EducationAchievementsSection';
 import { ContactSection } from './components/ContactSection';
@@ -19,52 +17,13 @@ import { useProjectsStorage } from './hooks/useProjectsStorage';
 export default function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
-  const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
-  const [isSyncModalOpen, setIsSyncModalOpen] = useState(false);
-  const [editingProject, setEditingProject] = useState<Project | null>(null);
 
-  const {
-    projects,
-    addProject,
-    updateProject,
-    deleteProject,
-    resetToDefault,
-    exportProjectsJSON,
-    importProjectsJSON,
-    savePermanentlyToCodebase,
-    customProjectsCount,
-    syncStatus,
-    lastSyncMessage,
-  } = useProjectsStorage();
+  const { projects } = useProjectsStorage();
 
   const handleOpenContact = () => {
     const contactElement = document.getElementById('contact');
     if (contactElement) {
       contactElement.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleOpenUpload = (projectToEdit?: Project) => {
-    setEditingProject(projectToEdit || null);
-    setIsUploadModalOpen(true);
-  };
-
-  const handleSaveProject = (projectData: Omit<Project, 'id'>, editId?: string) => {
-    if (editId) {
-      updateProject(editId, projectData);
-      if (selectedProject?.id === editId) {
-        setSelectedProject({ ...projectData, id: editId });
-      }
-    } else {
-      const created = addProject(projectData);
-      setSelectedProject(created);
-    }
-  };
-
-  const handleDeleteProject = (id: string) => {
-    deleteProject(id);
-    if (selectedProject?.id === id) {
-      setSelectedProject(null);
     }
   };
 
@@ -76,10 +35,7 @@ export default function App() {
       {/* Main Interactive Content Layer */}
       <div className="relative z-10">
         {/* Navigation Bar */}
-        <Navbar
-          onOpenResume={() => setIsResumeOpen(true)}
-          onOpenUploadWork={() => handleOpenUpload()}
-        />
+        <Navbar onOpenResume={() => setIsResumeOpen(true)} />
 
         {/* Main Content Sections */}
         <main>
@@ -96,14 +52,6 @@ export default function App() {
           <ProjectsSection
             projects={projects}
             onSelectProject={(project) => setSelectedProject(project)}
-            onOpenUploadModal={(proj) => handleOpenUpload(proj)}
-            onDeleteProject={handleDeleteProject}
-            onResetProjects={resetToDefault}
-            onExportProjects={exportProjectsJSON}
-            onOpenSyncModal={() => setIsSyncModalOpen(true)}
-            onSaveToCodebase={savePermanentlyToCodebase}
-            syncStatus={syncStatus}
-            customCount={customProjectsCount}
           />
 
           {/* Work Experience */}
@@ -125,38 +73,12 @@ export default function App() {
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
         onContactClick={handleOpenContact}
-        onEditProject={(proj) => handleOpenUpload(proj)}
-        onDeleteProject={handleDeleteProject}
-      />
-
-      {/* Upload Real Client Work Modal */}
-      <UploadWorkModal
-        isOpen={isUploadModalOpen}
-        onClose={() => {
-          setIsUploadModalOpen(false);
-          setEditingProject(null);
-        }}
-        onSave={handleSaveProject}
-        editingProject={editingProject}
       />
 
       {/* Resume / CV Modal */}
       <ResumeModal
         isOpen={isResumeOpen}
         onClose={() => setIsResumeOpen(false)}
-      />
-
-      {/* Codebase Persistence & Backup Sync Modal */}
-      <DataSyncModal
-        isOpen={isSyncModalOpen}
-        onClose={() => setIsSyncModalOpen(false)}
-        projects={projects}
-        customCount={customProjectsCount}
-        onSaveToCodebase={savePermanentlyToCodebase}
-        onExportJSON={exportProjectsJSON}
-        onImportJSON={importProjectsJSON}
-        syncStatus={syncStatus}
-        lastSyncMessage={lastSyncMessage}
       />
     </div>
   );

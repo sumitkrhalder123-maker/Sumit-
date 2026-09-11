@@ -29,7 +29,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenResume }) => {
               AI Generalist • Video Editor • AI Graphic Designer • Prompt Engineer
             </p>
             <p className="text-[11px] text-slate-500">
-              Based in Dum Dum, Kolkata, India • Available Worldwide
+              Studio: <span className="text-slate-300 font-medium">Graphics Sumit (গ্রাফিক্স সুমিত)</span> • North Dumdum, Kolkata, India
             </p>
           </div>
 

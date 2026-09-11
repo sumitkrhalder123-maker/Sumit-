@@ -130,7 +130,6 @@ export const SkillsSection: React.FC = () => {
                   <CheckCircle2 className="w-3 h-3" />
                   Production Ready
                 </span>
-                <span className="text-slate-500 font-mono">CV Verified</span>
               </div>
             </div>
           ))}

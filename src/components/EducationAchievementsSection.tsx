@@ -101,7 +101,7 @@ export const EducationAchievementsSection: React.FC = () => {
 
                   <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center gap-1.5 text-[11px] text-emerald-400 font-medium">
                     <CheckCircle2 className="w-3.5 h-3.5" />
-                    <span>CV Verified Metric</span>
+                    <span>Verified Milestone</span>
                   </div>
                 </div>
               ))}

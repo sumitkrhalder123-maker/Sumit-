@@ -73,6 +73,81 @@ async function startServer() {
     }
   });
 
+  // Contact form submission directly to sumitkrhalder26@gmail.com
+  app.post('/api/contact', async (req, res) => {
+    try {
+      const { name, email, serviceNeeded, scopeType, currency, customAmount, budgetSummary, message } = req.body;
+      if (!name || !email || !message) {
+        return res.status(400).json({ success: false, error: 'Name, email, and message are required' });
+      }
+
+      const inquiry = {
+        id: `inq-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`,
+        name,
+        email,
+        serviceNeeded: serviceNeeded || 'General Inquiry',
+        scopeType: scopeType || 'Project',
+        currency: currency || 'INR',
+        customAmount: customAmount || '',
+        budgetSummary: budgetSummary || '',
+        message,
+        createdAt: new Date().toISOString(),
+      };
+
+      // 1. Permanently save inquiry to disk
+      try {
+        const inqPath = path.join(process.cwd(), 'src', 'data', 'inquiries.json');
+        let existing: any[] = [];
+        if (fs.existsSync(inqPath)) {
+          const raw = fs.readFileSync(inqPath, 'utf-8');
+          existing = JSON.parse(raw);
+        }
+        existing.unshift(inquiry);
+        fs.writeFileSync(inqPath, JSON.stringify(existing, null, 2), 'utf-8');
+      } catch (saveErr) {
+        console.warn('Could not write to inquiries.json:', saveErr);
+      }
+
+      // 2. Deliver directly to Sumit's email: sumitkrhalder26@gmail.com
+      const targetEmail = 'sumitkrhalder26@gmail.com';
+      try {
+        const emailResponse = await fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            _subject: `[Portfolio Inquiry] ${serviceNeeded || 'Creative Project'} from ${name}`,
+            _replyto: email,
+            service: serviceNeeded || 'Not specified',
+            budget: budgetSummary || customAmount || 'Flexible',
+            currency: currency || 'INR',
+            scope: scopeType || 'Direct',
+            message: message,
+            _template: 'table',
+          }),
+        });
+
+        const emailResult = await emailResponse.json();
+        console.log(`Delivered inquiry from ${email} to ${targetEmail}:`, emailResult);
+      } catch (forwardErr) {
+        console.error('Email forwarding to formsubmit failed (inquiry still saved locally):', forwardErr);
+      }
+
+      return res.json({
+        success: true,
+        message: 'Message delivered directly to sumitkrhalder26@gmail.com',
+        inquiryId: inquiry.id,
+      });
+    } catch (err: any) {
+      console.error('Error handling contact submission:', err);
+      return res.status(500).json({ success: false, error: err.message });
+    }
+  });
+
   // Vite middleware for development vs static serve for production
   if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({

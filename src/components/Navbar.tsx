@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, FileText, Send, Sparkles, UploadCloud } from 'lucide-react';
+import { Menu, X, FileText, Send } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface NavbarProps {
   onOpenResume: () => void;
-  onOpenUploadWork?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, onOpenUploadWork }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
@@ -42,7 +41,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, onOpenUploadWork }
     { label: 'Portfolio', href: '#portfolio' },
     { label: 'Experience', href: '#experience' },
     { label: 'Education', href: '#education' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Contact & Map', href: '#contact' },
   ];
 
   return (
@@ -104,17 +103,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, onOpenUploadWork }
 
           {/* Right Action CTAs */}
           <div className="hidden sm:flex items-center gap-2.5">
-            {onOpenUploadWork && (
-              <button
-                onClick={onOpenUploadWork}
-                id="nav-upload-btn"
-                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-cyan-300 bg-cyan-950/40 hover:bg-cyan-950/70 border border-cyan-500/30 transition-all hover:border-cyan-400"
-              >
-                <UploadCloud className="w-4 h-4 text-cyan-400" />
-                <span>Upload Work</span>
-              </button>
-            )}
-
             <button
               onClick={onOpenResume}
               id="nav-resume-btn"
@@ -172,18 +160,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, onOpenUploadWork }
               </a>
             ))}
             <div className="pt-3 border-t border-slate-800/80 flex flex-col gap-2">
-              {onOpenUploadWork && (
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onOpenUploadWork();
-                  }}
-                  className="w-full py-2.5 rounded-xl text-sm font-semibold text-cyan-300 bg-cyan-950/40 border border-cyan-500/30 flex items-center justify-center gap-2"
-                >
-                  <UploadCloud className="w-4 h-4 text-cyan-400" />
-                  Upload Real Work
-                </button>
-              )}
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);

@@ -2,20 +2,21 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { Project } from '../types';
 import { PROJECTS as DEFAULT_PROJECTS, BASE_PROJECTS } from '../data/portfolioData';
 
-const STORAGE_KEY = 'sumit_portfolio_projects_v2';
+const STORAGE_KEY = 'sumit_portfolio_projects_v4';
 const BASE_PROJECT_IDS = new Set(BASE_PROJECTS.map((p) => p.id));
 
 export function useProjectsStorage() {
   const [projects, setProjects] = useState<Project[]>(() => {
     try {
+      // Clear previous versions
+      localStorage.removeItem('sumit_portfolio_projects_v1');
+      localStorage.removeItem('sumit_portfolio_projects_v2');
+      localStorage.removeItem('sumit_portfolio_projects_v3');
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         const parsed = JSON.parse(stored);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          // Merge: ensure any new base projects or client projects in repo are preserved
-          const storedIds = new Set(parsed.map((p: Project) => p.id));
-          const missingDefaults = DEFAULT_PROJECTS.filter((dp) => !storedIds.has(dp.id));
-          return [...parsed, ...missingDefaults];
+        if (Array.isArray(parsed)) {
+          return parsed;
         }
       }
     } catch (e) {

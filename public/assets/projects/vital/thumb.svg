@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="vitalBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#042f2e" />
+      <stop offset="50%" stop-color="#064e3b" />
+      <stop offset="100%" stop-color="#022c22" />
+    </linearGradient>
+    <linearGradient id="vitalGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+    <filter id="drop" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="100%" height="100%" fill="url(#vitalBg)" />
+
+  <!-- Diagonal dynamic energy light beams -->
+  <path d="M-100 675 L450 -100 L620 -100 L70 675 Z" fill="#10b981" opacity="0.08" />
+  <path d="M250 675 L800 -100 L950 -100 L400 675 Z" fill="#34d399" opacity="0.05" />
+
+  <!-- Outer frame border -->
+  <rect x="40" y="40" width="1120" height="595" rx="24" fill="none" stroke="#10b981" stroke-width="2" opacity="0.35" />
+
+  <!-- Brand Pill Badge -->
+  <g transform="translate(80, 80)">
+    <rect width="260" height="46" rx="23" fill="#042f2e" stroke="#10b981" stroke-width="1.5" />
+    <circle cx="26" cy="23" r="6" fill="#34d399" />
+    <text x="44" y="29" fill="#34d399" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="14" letter-spacing="3">CLIENT WORK • VITAL</text>
+  </g>
+
+  <!-- Asset count pill top-right -->
+  <g transform="translate(940, 80)">
+    <rect width="180" height="46" rx="23" fill="#022c22" stroke="#34d399" stroke-width="1" opacity="0.8" />
+    <text x="90" y="29" fill="#a7f3d0" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="14" text-anchor="middle" letter-spacing="1.5">22 ASSETS DELIVERED</text>
+  </g>
+
+  <!-- Central Emblem & Title -->
+  <g transform="translate(600, 310)" text-anchor="middle">
+    <!-- Glowing Ring Motif -->
+    <circle r="120" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="8 6" opacity="0.4" />
+    <circle r="95" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.25" />
+    
+    <!-- Central Icon/Monogram -->
+    <text y="-80" fill="#a7f3d0" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="15" letter-spacing="6">COMMERCIAL BRAND DIRECTION</text>
+    
+    <text y="15" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="96" letter-spacing="6" filter="url(#drop)">VITAL</text>
+    
+    <text y="70" fill="#34d399" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="20" letter-spacing="4">HYDRATION + CELLULAR PERFORMANCE</text>
+  </g>
+
+  <!-- Bottom Details Bar -->
+  <g transform="translate(100, 560)">
+    <text x="0" y="0" fill="#94a3b8" font-family="sans-serif" font-weight="500" font-size="16">Packaging • 3D Renders • Social Carousels • Billboards</text>
+    <text x="1000" y="0" fill="#10b981" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="16" text-anchor="end">100% GEN AI ART DIRECTION</text>
+  </g>
+</svg>
