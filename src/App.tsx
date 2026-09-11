@@ -6,6 +6,7 @@ import { SkillsSection } from './components/SkillsSection';
 import { ProjectsSection } from './components/ProjectsSection';
 import { ProjectModal } from './components/ProjectModal';
 import { UploadWorkModal } from './components/UploadWorkModal';
+import { DataSyncModal } from './components/DataSyncModal';
 import { ExperienceSection } from './components/ExperienceSection';
 import { EducationAchievementsSection } from './components/EducationAchievementsSection';
 import { ContactSection } from './components/ContactSection';
@@ -19,6 +20,7 @@ export default function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
+  const [isSyncModalOpen, setIsSyncModalOpen] = useState(false);
   const [editingProject, setEditingProject] = useState<Project | null>(null);
 
   const {
@@ -28,7 +30,11 @@ export default function App() {
     deleteProject,
     resetToDefault,
     exportProjectsJSON,
+    importProjectsJSON,
+    savePermanentlyToCodebase,
     customProjectsCount,
+    syncStatus,
+    lastSyncMessage,
   } = useProjectsStorage();
 
   const handleOpenContact = () => {
@@ -94,6 +100,9 @@ export default function App() {
             onDeleteProject={handleDeleteProject}
             onResetProjects={resetToDefault}
             onExportProjects={exportProjectsJSON}
+            onOpenSyncModal={() => setIsSyncModalOpen(true)}
+            onSaveToCodebase={savePermanentlyToCodebase}
+            syncStatus={syncStatus}
             customCount={customProjectsCount}
           />
 
@@ -135,6 +144,19 @@ export default function App() {
       <ResumeModal
         isOpen={isResumeOpen}
         onClose={() => setIsResumeOpen(false)}
+      />
+
+      {/* Codebase Persistence & Backup Sync Modal */}
+      <DataSyncModal
+        isOpen={isSyncModalOpen}
+        onClose={() => setIsSyncModalOpen(false)}
+        projects={projects}
+        customCount={customProjectsCount}
+        onSaveToCodebase={savePermanentlyToCodebase}
+        onExportJSON={exportProjectsJSON}
+        onImportJSON={importProjectsJSON}
+        syncStatus={syncStatus}
+        lastSyncMessage={lastSyncMessage}
       />
     </div>
   );

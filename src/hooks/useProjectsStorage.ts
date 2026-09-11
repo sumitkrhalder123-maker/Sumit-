@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Project } from '../types';
-import { PROJECTS as DEFAULT_PROJECTS } from '../data/portfolioData';
+import { PROJECTS as DEFAULT_PROJECTS, BASE_PROJECTS } from '../data/portfolioData';
 
 const STORAGE_KEY = 'sumit_portfolio_projects_v2';
+const BASE_PROJECT_IDS = new Set(BASE_PROJECTS.map((p) => p.id));
 
 export function useProjectsStorage() {
   const [projects, setProjects] = useState<Project[]>(() => {
@@ -11,7 +12,10 @@ export function useProjectsStorage() {
       if (stored) {
         const parsed = JSON.parse(stored);
         if (Array.isArray(parsed) && parsed.length > 0) {
-          return parsed;
+          // Merge: ensure any new base projects or client projects in repo are preserved
+          const storedIds = new Set(parsed.map((p: Project) => p.id));
+          const missingDefaults = DEFAULT_PROJECTS.filter((dp) => !storedIds.has(dp.id));
+          return [...parsed, ...missingDefaults];
         }
       }
     } catch (e) {
@@ -19,6 +23,10 @@ export function useProjectsStorage() {
     }
     return DEFAULT_PROJECTS;
   });
+
+  const [syncStatus, setSyncStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
+  const [lastSyncMessage, setLastSyncMessage] = useState<string>('');
+  const syncTimeoutRef = useRef<any>(null);
 
   // Sync back to localStorage whenever projects state changes
   useEffect(() => {
@@ -28,6 +36,60 @@ export function useProjectsStorage() {
       console.warn('Could not save projects to localStorage (quota or disabled):', e);
     }
   }, [projects]);
+
+  // Method to persist projects permanently to backend filesystem
+  const savePermanentlyToCodebase = useCallback(async (projectsToSave?: Project[]) => {
+    const targetProjects = projectsToSave || projects;
+    // Extract custom or client projects to persist to repository
+    const clientProjectsToPersist = targetProjects.filter(
+      (p) => p.isCustomUpload || !BASE_PROJECT_IDS.has(p.id)
+    );
+
+    setSyncStatus('saving');
+    try {
+      const res = await fetch('/api/save-projects', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          projects: clientProjectsToPersist.length > 0 ? clientProjectsToPersist : targetProjects,
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error(`Server responded with ${res.status}`);
+      }
+
+      const data = await res.json();
+      setSyncStatus('saved');
+      setLastSyncMessage(data.message || 'Successfully saved to codebase!');
+      return { success: true, count: clientProjectsToPersist.length, message: data.message };
+    } catch (err: any) {
+      console.warn('Permanent server save failed or static environment:', err.message);
+      setSyncStatus('error');
+      setLastSyncMessage(
+        'Server endpoint unavailable (running in static host/GitHub Pages). LocalStorage and Export JSON active.'
+      );
+      return { success: false, error: err.message };
+    }
+  }, [projects]);
+
+  // Auto-sync custom projects to server on initial load or change (debounced)
+  useEffect(() => {
+    const hasCustom = projects.some((p) => p.isCustomUpload || !BASE_PROJECT_IDS.has(p.id));
+    if (!hasCustom) return;
+
+    if (syncTimeoutRef.current) {
+      clearTimeout(syncTimeoutRef.current);
+    }
+
+    syncTimeoutRef.current = setTimeout(() => {
+      savePermanentlyToCodebase();
+    }, 2000);
+
+    return () => {
+      if (syncTimeoutRef.current) clearTimeout(syncTimeoutRef.current);
+    };
+  }, [projects, savePermanentlyToCodebase]);
 
   const addProject = (newProject: Omit<Project, 'id'>) => {
     const id = `custom-proj-${Date.now()}`;
@@ -62,6 +124,8 @@ export function useProjectsStorage() {
     } catch {
       // ignore
     }
+    // Also clear server client projects if needed
+    savePermanentlyToCodebase([]);
   };
 
   const exportProjectsJSON = () => {
@@ -74,7 +138,32 @@ export function useProjectsStorage() {
     downloadAnchor.remove();
   };
 
-  const customProjectsCount = projects.filter((p) => p.isCustomUpload).length;
+  const importProjectsJSON = (jsonInput: string | Project[]) => {
+    try {
+      const parsed: Project[] = typeof jsonInput === 'string' ? JSON.parse(jsonInput) : jsonInput;
+      if (!Array.isArray(parsed) || parsed.length === 0) {
+        throw new Error('Provided input is not a valid list of projects.');
+      }
+
+      // Merge avoiding duplicate IDs
+      setProjects((prev) => {
+        const existingIds = new Set(parsed.map((p) => p.id));
+        const merged = [...parsed, ...prev.filter((p) => !existingIds.has(p.id))];
+        // Save immediately
+        savePermanentlyToCodebase(merged);
+        return merged;
+      });
+
+      return { success: true, count: parsed.length };
+    } catch (err: any) {
+      console.error('Import failed:', err);
+      return { success: false, error: err.message || 'Invalid JSON format' };
+    }
+  };
+
+  const customProjectsCount = projects.filter(
+    (p) => p.isCustomUpload || !BASE_PROJECT_IDS.has(p.id)
+  ).length;
 
   return {
     projects,
@@ -83,6 +172,11 @@ export function useProjectsStorage() {
     deleteProject,
     resetToDefault,
     exportProjectsJSON,
+    importProjectsJSON,
+    savePermanentlyToCodebase,
     customProjectsCount,
+    syncStatus,
+    lastSyncMessage,
   };
 }
+

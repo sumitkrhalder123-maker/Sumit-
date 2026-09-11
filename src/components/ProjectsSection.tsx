@@ -17,7 +17,10 @@ import {
   Building,
   CheckCircle,
   FolderOpen,
-  Camera
+  Camera,
+  Database,
+  HardDrive,
+  Check
 } from 'lucide-react';
 import { CategoryType, Project } from '../types';
 import { getVideoInfo } from '../utils/mediaUtils';
@@ -29,6 +32,9 @@ interface ProjectsSectionProps {
   onDeleteProject: (projectId: string) => void;
   onResetProjects?: () => void;
   onExportProjects?: () => void;
+  onOpenSyncModal?: () => void;
+  onSaveToCodebase?: () => Promise<any>;
+  syncStatus?: 'idle' | 'saving' | 'saved' | 'error';
   customCount?: number;
 }
 
@@ -39,10 +45,23 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
   onDeleteProject,
   onResetProjects,
   onExportProjects,
+  onOpenSyncModal,
+  onSaveToCodebase,
+  syncStatus = 'idle',
   customCount = 0,
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<CategoryType>('all');
   const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [quickSaved, setQuickSaved] = useState(false);
+
+  const handleQuickSave = async () => {
+    if (!onSaveToCodebase) return;
+    const res = await onSaveToCodebase();
+    if (res?.success) {
+      setQuickSaved(true);
+      setTimeout(() => setQuickSaved(false), 3000);
+    }
+  };
 
   const categories: { id: CategoryType; label: string; icon: React.ReactNode }[] = [
     { id: 'all', label: 'All Projects', icon: <Layers className="w-3.5 h-3.5" /> },
@@ -90,6 +109,17 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
               <span>Upload Client Folder</span>
             </button>
 
+            {onOpenSyncModal && (
+              <button
+                onClick={onOpenSyncModal}
+                title="Backup, Sync & GitHub Pages Deployment Tools"
+                className="inline-flex items-center gap-1.5 px-3 py-2.5 rounded-xl text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-cyan-300 border border-cyan-500/30 transition-colors shadow-sm"
+              >
+                <Database className="w-3.5 h-3.5" />
+                <span>Sync / Backup</span>
+              </button>
+            )}
+
             {onExportProjects && (
               <button
                 onClick={onExportProjects}
@@ -120,19 +150,46 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
 
         {/* Client Work Status Banner if custom items uploaded */}
         {customCount > 0 && (
-          <div className="mb-8 p-4 rounded-2xl bg-cyan-950/30 border border-cyan-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+          <div className="mb-8 p-4 rounded-2xl bg-cyan-950/40 border border-cyan-500/40 flex flex-col lg:flex-row lg:items-center justify-between gap-4 text-xs shadow-lg shadow-cyan-950/20">
             <div className="flex items-center gap-2.5 text-cyan-300">
               <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
               <span>
-                <strong className="font-semibold text-white">{customCount} real client project{customCount > 1 ? 's' : ''}</strong> uploaded and actively showcased in your portfolio.
+                <strong className="font-bold text-white">{customCount} real client project{customCount > 1 ? 's' : ''}</strong> uploaded and actively showcased in your portfolio.
               </span>
             </div>
-            <button
-              onClick={() => onOpenUploadModal()}
-              className="text-cyan-400 hover:text-cyan-300 font-semibold underline underline-offset-4 self-start sm:self-auto"
-            >
-              + Upload Another Project
-            </button>
+
+            <div className="flex flex-wrap items-center gap-2">
+              {onSaveToCodebase && (
+                <button
+                  onClick={handleQuickSave}
+                  title="Persist projects directly to codebase for GitHub Pages deployment"
+                  className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                    quickSaved
+                      ? 'bg-emerald-500 text-black shadow-md shadow-emerald-500/30'
+                      : 'bg-gradient-to-r from-emerald-500/90 to-teal-500/90 hover:from-emerald-400 hover:to-teal-400 text-black shadow-md'
+                  }`}
+                >
+                  {quickSaved ? <Check className="w-3.5 h-3.5" /> : <HardDrive className="w-3.5 h-3.5" />}
+                  <span>{quickSaved ? 'Saved to Codebase!' : '💾 Save to Codebase (GitHub Pages)'}</span>
+                </button>
+              )}
+
+              {onOpenSyncModal && (
+                <button
+                  onClick={onOpenSyncModal}
+                  className="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-cyan-300 border border-slate-700 font-semibold transition-all"
+                >
+                  Backup / Sync Tools
+                </button>
+              )}
+
+              <button
+                onClick={() => onOpenUploadModal()}
+                className="text-cyan-400 hover:text-cyan-300 font-semibold underline underline-offset-4 px-1"
+              >
+                + Upload Another Project
+              </button>
+            </div>
           </div>
         )}
 

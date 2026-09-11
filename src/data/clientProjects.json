@@ -1,0 +1,264 @@
+[
+  {
+    "id": "client-proj-bikano",
+    "title": "Bikano",
+    "category": "ai-video",
+    "categoryLabel": "AI Video & Motion",
+    "summary": "Commercial client project package delivered for Bikano.",
+    "clientOrContext": "Bikano",
+    "thumbnail": "./assets/projects/bikano/thumb.svg",
+    "toolsUsed": [
+      "Premiere Pro",
+      "Kling",
+      "Midjourney",
+      "Photoshop"
+    ],
+    "workflow": [
+      "Creative concept ideation and crossword narrative development for Bikano snacks campaign",
+      "Kling AI video generation for kinetic letter motion and dynamic reveal pacing",
+      "Photoshop high-cadence retouching and key visual graphic layout",
+      "Final Premiere Pro commercial assembly, sound scoring, and multichannel delivery"
+    ],
+    "deliverables": [
+      "Commercial Campaign Master Cuts (16:9 & 9:16)",
+      "Crossword Interactive Social Reel Cut",
+      "10 High-Resolution Promotional Print & Digital Stills"
+    ],
+    "metrics": "12 Deliverables package delivered on schedule with high social engagement",
+    "aspectRatio": "16:9",
+    "isCustomUpload": true,
+    "uploadedAt": "Sep 2026",
+    "mediaItems": [
+      {
+        "id": "bikano-m-1",
+        "type": "video",
+        "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "title": "Bikano Crossword Commercial Video Reel",
+        "caption": "Kling generative video featuring dynamic crossword puzzle letter animations and snack reveal",
+        "isCover": true
+      },
+      {
+        "id": "bikano-m-2",
+        "type": "video",
+        "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "title": "Bikano Social Snack Bite Cut",
+        "caption": "Short-form vertical video cut optimized for Instagram and YouTube Shorts"
+      },
+      {
+        "id": "bikano-m-3",
+        "type": "image",
+        "url": "./assets/projects/bikano/thumb.svg",
+        "title": "Bikano Crossword Master Key Visual",
+        "caption": "Primary promotional graphic for digital advertising and social feeds"
+      },
+      {
+        "id": "bikano-m-4",
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80",
+        "title": "Bikano Festive Snack Packaging Display",
+        "caption": "Photorealistic product composition with dramatic studio chiaroscuro lighting"
+      },
+      {
+        "id": "bikano-m-5",
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80",
+        "title": "Bikano Digital Billboard Campaign",
+        "caption": "Outdoor transit and digital hoarding visual mock"
+      },
+      {
+        "id": "bikano-m-6",
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1526947425960-945c6e72858f?auto=format&fit=crop&w=1200&q=80",
+        "title": "Bikano Namkeen Product Macro Shot",
+        "caption": "High-fidelity texture details and spices generated in Midjourney v6"
+      },
+      {
+        "id": "bikano-m-7",
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+        "title": "Bikano Golden Hour Snack Party Creative",
+        "caption": "Lifestyle commercial visual calibrated for festival marketing"
+      },
+      {
+        "id": "bikano-m-8",
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
+        "title": "Bikano Social Carousel Slide 1 - Puzzle Reveal",
+        "caption": "Engaging community carousel graphic for social audience"
+      },
+      {
+        "id": "bikano-m-9",
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80",
+        "title": "Bikano Social Carousel Slide 2 - Answer Clue",
+        "caption": "Gamified interaction slide driving audience comments and saves"
+      },
+      {
+        "id": "bikano-m-10",
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80",
+        "title": "Bikano Brand Typography & Logo Lockup",
+        "caption": "Vector branding design and color guidelines"
+      },
+      {
+        "id": "bikano-m-11",
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80",
+        "title": "Bikano Retail Point of Sale Poster",
+        "caption": "High-contrast retail store display creative"
+      },
+      {
+        "id": "bikano-m-12",
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80",
+        "title": "Bikano End Screen Banner & CTA",
+        "caption": "Campaign concluding frame with order now Call-to-Action"
+      }
+    ]
+  },
+  {
+    "id": "client-proj-mpp",
+    "title": "MPP",
+    "category": "ai-video",
+    "categoryLabel": "AI Video & Motion",
+    "summary": "Commercial client project package delivered for MPP.",
+    "clientOrContext": "MPP",
+    "thumbnail": "./assets/projects/mpp/thumb.svg",
+    "toolsUsed": [
+      "Premiere Pro",
+      "Kling",
+      "Midjourney",
+      "Photoshop"
+    ],
+    "workflow": [
+      "Art direction for 'Throne of Silk' luxury baby brand campaign combining royal elegance with soft silk motifs",
+      "Prompt engineering in Midjourney v6 and Flux for photorealistic velvet, silk pillows, and royal crown lighting",
+      "High-resolution digital painting, fabric texture blending, and typography lockup in Photoshop",
+      "Multi-format commercial asset generation for digital campaigns, e-commerce banners, and brand lookbooks"
+    ],
+    "deliverables": [
+      "Master 'Throne of Silk' Key Visual Series (4K)",
+      "E-Commerce Hero Banner Suite",
+      "16 High-Impact Social Carousel and Ad Creatives"
+    ],
+    "metrics": "16 Deliverables delivered; high-end luxury aesthetic achieved with 100% Gen AI pipelines",
+    "aspectRatio": "16:9",
+    "isCustomUpload": true,
+    "uploadedAt": "Sep 2026",
+    "mediaItems": [
+      {
+        "id": "mpp-m-1",
+        "type": "image",
+        "url": "./assets/projects/mpp/thumb.svg",
+        "title": "Throne of Silk - Royal Luxury Key Visual",
+        "caption": "Baby on royal velvet & silk embroidered cushions with golden crown ('Nothing but Silk will do.')",
+        "isCover": true
+      },
+      {
+        "id": "mpp-m-2",
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80",
+        "title": "Throne of Silk - Silk Softness Macro Detail",
+        "caption": "Macro photography simulation showcasing microscopic silk softness and breathability"
+      },
+      {
+        "id": "mpp-m-3",
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80",
+        "title": "MPP Royal Silk Campaign E-Commerce Hero",
+        "caption": "Amazon & marketplace front page hero banner"
+      },
+      {
+        "id": "mpp-m-4",
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+        "title": "Throne of Silk - Sapphire Velvet Close-Up",
+        "caption": "Deep blue luxury palette with ornate golden filigree accents"
+      },
+      {
+        "id": "mpp-m-5",
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80",
+        "title": "Throne of Silk - Studio Chiaroscuro Portrait",
+        "caption": "Cinematic warm key light meeting cool royal blue shadows"
+      },
+      {
+        "id": "mpp-m-6",
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1526947425960-945c6e72858f?auto=format&fit=crop&w=1200&q=80",
+        "title": "Throne of Silk - Golden Crown Macro",
+        "caption": "Ornate golden crown with ruby and sapphire gemstones"
+      },
+      {
+        "id": "mpp-m-7",
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
+        "title": "MPP Silk Social Story Creative 1",
+        "caption": "Instagram 9:16 high-conversion story slide"
+      },
+      {
+        "id": "mpp-m-8",
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=80",
+        "title": "MPP Silk Social Story Creative 2",
+        "caption": "Highlighting 2x comfort and overnight dry fit"
+      },
+      {
+        "id": "mpp-m-9",
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80",
+        "title": "Throne of Silk - Brand Typography Guide",
+        "caption": "Cinzel and Playfair Display gold gradient serif typography system"
+      },
+      {
+        "id": "mpp-m-10",
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80",
+        "title": "MPP Luxury Packaging Mockup",
+        "caption": "Complete retail box and pouch design render"
+      },
+      {
+        "id": "mpp-m-11",
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80",
+        "title": "Throne of Silk - Social Carousel Frame 1",
+        "caption": "Introducing the all-new Silk Pants series"
+      },
+      {
+        "id": "mpp-m-12",
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1200&q=80",
+        "title": "Throne of Silk - Social Carousel Frame 2",
+        "caption": "Dermatologist approved gentle silk lining"
+      },
+      {
+        "id": "mpp-m-13",
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80",
+        "title": "Throne of Silk - Social Carousel Frame 3",
+        "caption": "Royal cushion comfort visual demonstration"
+      },
+      {
+        "id": "mpp-m-14",
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80",
+        "title": "Throne of Silk - Social Carousel Frame 4",
+        "caption": "Celebrity mom testimonial quote template"
+      },
+      {
+        "id": "mpp-m-15",
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+        "title": "Throne of Silk - Outdoor Hoarding Mockup",
+        "caption": "Airport and highway advertising display visual"
+      },
+      {
+        "id": "mpp-m-16",
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80",
+        "title": "Throne of Silk - Final Master Print Proof",
+        "caption": "CMYK pre-flight proof for commercial packaging production"
+      }
+    ]
+  }
+]

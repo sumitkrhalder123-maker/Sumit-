@@ -1,4 +1,7 @@
 import { Achievement, Education, Experience, Language, Project, SkillItem } from '../types';
+import rawClientProjects from './clientProjects.json';
+
+const clientProjectsList: Project[] = Array.isArray(rawClientProjects) ? (rawClientProjects as Project[]) : [];
 
 export const PERSONAL_INFO = {
   name: 'Sumit Kumer Halder',
@@ -178,7 +181,7 @@ export const SKILLS_LIST: SkillItem[] = [
   { name: 'Multimedia Office Admin', category: 'workflow', level: 'Mastery', experience: 'Asset organization, delivery scheduling, client communication' }
 ];
 
-export const PROJECTS: Project[] = [
+export const BASE_PROJECTS: Project[] = [
   {
     id: 'proj-indianoil-photography',
     title: 'Indian Oil Photography Project',
@@ -501,4 +504,10 @@ export const PROJECTS: Project[] = [
     metrics: '99% temporal character consistency across scene transitions',
     aspectRatio: '16:9'
   }
+];
+
+// Merge client projects loaded from repository/JSON with base projects
+export const PROJECTS: Project[] = [
+  ...clientProjectsList,
+  ...BASE_PROJECTS.filter((bp) => !clientProjectsList.some((cp) => cp.id === bp.id))
 ];
