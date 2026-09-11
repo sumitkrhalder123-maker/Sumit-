@@ -5,6 +5,7 @@ import { AboutSection } from './components/AboutSection';
 import { SkillsSection } from './components/SkillsSection';
 import { ProjectsSection } from './components/ProjectsSection';
 import { ProjectModal } from './components/ProjectModal';
+import { UploadWorkModal } from './components/UploadWorkModal';
 import { ExperienceSection } from './components/ExperienceSection';
 import { EducationAchievementsSection } from './components/EducationAchievementsSection';
 import { ContactSection } from './components/ContactSection';
@@ -12,16 +13,52 @@ import { ResumeModal } from './components/ResumeModal';
 import { Footer } from './components/Footer';
 import { SnowBackground } from './components/SnowBackground';
 import { Project } from './types';
-import { PROJECTS } from './data/portfolioData';
+import { useProjectsStorage } from './hooks/useProjectsStorage';
 
 export default function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
+  const [editingProject, setEditingProject] = useState<Project | null>(null);
+
+  const {
+    projects,
+    addProject,
+    updateProject,
+    deleteProject,
+    resetToDefault,
+    exportProjectsJSON,
+    customProjectsCount,
+  } = useProjectsStorage();
 
   const handleOpenContact = () => {
     const contactElement = document.getElementById('contact');
     if (contactElement) {
       contactElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleOpenUpload = (projectToEdit?: Project) => {
+    setEditingProject(projectToEdit || null);
+    setIsUploadModalOpen(true);
+  };
+
+  const handleSaveProject = (projectData: Omit<Project, 'id'>, editId?: string) => {
+    if (editId) {
+      updateProject(editId, projectData);
+      if (selectedProject?.id === editId) {
+        setSelectedProject({ ...projectData, id: editId });
+      }
+    } else {
+      const created = addProject(projectData);
+      setSelectedProject(created);
+    }
+  };
+
+  const handleDeleteProject = (id: string) => {
+    deleteProject(id);
+    if (selectedProject?.id === id) {
+      setSelectedProject(null);
     }
   };
 
@@ -33,7 +70,10 @@ export default function App() {
       {/* Main Interactive Content Layer */}
       <div className="relative z-10">
         {/* Navigation Bar */}
-        <Navbar onOpenResume={() => setIsResumeOpen(true)} />
+        <Navbar
+          onOpenResume={() => setIsResumeOpen(true)}
+          onOpenUploadWork={() => handleOpenUpload()}
+        />
 
         {/* Main Content Sections */}
         <main>
@@ -46,10 +86,15 @@ export default function App() {
           {/* Skills & AI Models */}
           <SkillsSection />
 
-          {/* Portfolio & Real Client Case Studies (Strictly view-only for visitors) */}
+          {/* Portfolio & Real Client Case Studies */}
           <ProjectsSection
-            projects={PROJECTS}
+            projects={projects}
             onSelectProject={(project) => setSelectedProject(project)}
+            onOpenUploadModal={(proj) => handleOpenUpload(proj)}
+            onDeleteProject={handleDeleteProject}
+            onResetProjects={resetToDefault}
+            onExportProjects={exportProjectsJSON}
+            customCount={customProjectsCount}
           />
 
           {/* Work Experience */}
@@ -71,6 +116,19 @@ export default function App() {
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
         onContactClick={handleOpenContact}
+        onEditProject={(proj) => handleOpenUpload(proj)}
+        onDeleteProject={handleDeleteProject}
+      />
+
+      {/* Upload Real Client Work Modal */}
+      <UploadWorkModal
+        isOpen={isUploadModalOpen}
+        onClose={() => {
+          setIsUploadModalOpen(false);
+          setEditingProject(null);
+        }}
+        onSave={handleSaveProject}
+        editingProject={editingProject}
       />
 
       {/* Resume / CV Modal */}
