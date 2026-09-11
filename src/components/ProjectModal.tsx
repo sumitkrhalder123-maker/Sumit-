@@ -6,8 +6,6 @@ import {
   Terminal,
   ArrowRight,
   ExternalLink,
-  Edit3,
-  Trash2,
   Play,
   Film,
   Image as ImageIcon,
@@ -24,20 +22,15 @@ interface ProjectModalProps {
   project: Project | null;
   onClose: () => void;
   onContactClick: () => void;
-  onEditProject?: (project: Project) => void;
-  onDeleteProject?: (projectId: string) => void;
 }
 
 export const ProjectModal: React.FC<ProjectModalProps> = ({
   project,
   onClose,
   onContactClick,
-  onEditProject,
-  onDeleteProject,
 }) => {
   const [activeMediaIndex, setActiveMediaIndex] = useState(0);
   const [mediaFilter, setMediaFilter] = useState<'all' | 'video' | 'image'>('all');
-  const [showConfirmDelete, setShowConfirmDelete] = useState(false);
 
   // Derive all media assets for this client folder
   const mediaList: MediaItem[] = React.useMemo(() => {
@@ -70,7 +63,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   useEffect(() => {
     setActiveMediaIndex(0);
     setMediaFilter('all');
-    setShowConfirmDelete(false);
   }, [project]);
 
   useEffect(() => {
@@ -117,13 +109,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
     }
   };
 
-  const handleDelete = () => {
-    if (onDeleteProject) {
-      onDeleteProject(project.id);
-      onClose();
-    }
-  };
-
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-black/85 backdrop-blur-md"
@@ -149,68 +134,18 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                 {mediaList.length} Assets ({videoCount}v, {imageCount}i)
               </span>
             )}
-            {project.isCustomUpload && (
-              <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                Custom Upload
-              </span>
-            )}
           </div>
 
           <div className="flex items-center gap-1.5">
-            {onEditProject && (
-              <button
-                onClick={() => {
-                  onEditProject(project);
-                  onClose();
-                }}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-cyan-300 hover:bg-slate-800 transition-colors flex items-center gap-1 text-xs"
-                title="Edit client folder & media"
-              >
-                <Edit3 className="w-4 h-4" />
-                <span className="hidden sm:inline">Edit Folder</span>
-              </button>
-            )}
-
-            {onDeleteProject && (
-              <button
-                onClick={() => setShowConfirmDelete(!showConfirmDelete)}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-rose-400 hover:bg-slate-800 transition-colors"
-                title="Delete project"
-              >
-                <Trash2 className="w-4 h-4" />
-              </button>
-            )}
-
             <button
               onClick={onClose}
-              className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+              className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
               aria-label="Close modal"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
         </div>
-
-        {/* Delete Confirmation Alert */}
-        {showConfirmDelete && (
-          <div className="px-6 py-3 bg-rose-950/40 border-b border-rose-500/30 flex items-center justify-between gap-3 text-xs text-rose-200">
-            <span>Are you sure you want to remove this client folder from your portfolio?</span>
-            <div className="flex items-center gap-2">
-              <button
-                onClick={handleDelete}
-                className="px-3 py-1 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-semibold"
-              >
-                Confirm Delete
-              </button>
-              <button
-                onClick={() => setShowConfirmDelete(false)}
-                className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300"
-              >
-                Cancel
-              </button>
-            </div>
-          </div>
-        )}
 
         {/* Modal Scrollable Body */}
         <div className="p-6 sm:p-8 overflow-y-auto space-y-6">
