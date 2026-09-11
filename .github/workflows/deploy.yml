@@ -31,14 +31,20 @@ jobs:
         with:
           node-version: 22
 
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v4
+
       - name: Install dependencies
         run: npm install
 
       - name: Build static site
         run: npm run build:pages
+        env:
+          BASE_URL: ${{ steps.pages.outputs.base_path }}
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+      - name: Ensure .nojekyll in dist
+        run: touch ./dist/.nojekyll
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
