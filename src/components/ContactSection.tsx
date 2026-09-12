@@ -25,7 +25,7 @@ import {
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { OfficeHologram } from './OfficeHologram';
 import { IndianThemeMap } from './IndianThemeMap';
-import { SumitAvatarHologram } from './SumitAvatarHologram';
+import { TextImageGenerator } from './TextImageGenerator';
 
 interface CurrencyOption {
   code: string;
@@ -662,20 +662,9 @@ export const ContactSection: React.FC = () => {
               </div>
             </div>
 
-            {/* 3D Hologram: Graphics Sumit (Personal Digital Twin as per uploaded reference) */}
+            {/* Live Free Text To Image Generator with Reference Image Upload */}
             <div className="pt-2 space-y-3">
-              <div className="flex items-center justify-between px-1">
-                <div className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-cyan-400" />
-                  <span className="text-sm font-bold text-white">3D Hologram: Graphics Sumit</span>
-                </div>
-                <span className="text-[11px] text-cyan-400 font-mono">
-                  360° BIOMETRIC AVATAR
-                </span>
-              </div>
-
-              {/* Personal 3D Hologram with 'Graphics Sumit' branding underneath */}
-              <SumitAvatarHologram />
+              <TextImageGenerator />
             </div>
           </div>
         </div>

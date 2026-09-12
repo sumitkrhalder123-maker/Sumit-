@@ -159,31 +159,31 @@ export const LANGUAGES: Language[] = [
 ];
 
 export const SKILLS_LIST: SkillItem[] = [
-  // Generative AI
-  { name: 'Midjourney', category: 'genai', level: 'Mastery', experience: 'Photorealistic styling, parameter fine-tuning, multi-prompting', highlighted: true },
-  { name: 'Flux', category: 'genai', level: 'Mastery', experience: 'Advanced open-weights generation, high-fidelity anatomy & text rendering', highlighted: true },
-  { name: 'Kling', category: 'genai', level: 'Advanced', experience: 'Physics-accurate motion generation, dynamic camera angles, cinematic pan/zoom', highlighted: true },
-  { name: 'Veo 3', category: 'genai', level: 'Advanced', experience: 'High-definition video generation and temporal consistency', highlighted: true },
-  { name: 'Comfy UI', category: 'genai', level: 'Advanced', experience: 'Node-based modular workflows, ControlNet, IP-Adapter, custom checkpoints', highlighted: true },
-  { name: 'Seedance 2.0', category: 'genai', level: 'Advanced', experience: 'Creative AI video choreography and character motion synthesis' },
-  { name: 'Nano Banana', category: 'genai', level: 'Specialist', experience: 'Rapid AI prototyping and experimental pipeline workflows' },
-  { name: 'ChatGPT', category: 'genai', level: 'Mastery', experience: 'System prompt engineering, creative scriptwriting, storyboard generation' },
+  // Generative AI & Video Models
+  { name: 'Flux (Pro / Dev)', category: 'genai', level: 'Mastery', experience: 'High-fidelity anatomical rendering, photorealism, and zero-distortion text', highlighted: true },
+  { name: 'Kling 2.0', category: 'genai', level: 'Mastery', experience: '1080p cinematic video generation, motion brush, and camera physics', highlighted: true },
+  { name: 'Google Veo 3.1', category: 'genai', level: 'Mastery', experience: 'Ultra-high-definition video synthesis, temporal consistency, and lens physics', highlighted: true },
+  { name: 'Alibaba Wan 2.1', category: 'genai', level: 'Mastery', experience: '14B cinematic motion dynamics, text-to-video, and image-to-video', highlighted: true },
+  { name: 'Seedance 2.0', category: 'genai', level: 'Advanced', experience: 'Creative AI video choreography and character motion synthesis', highlighted: true },
+  { name: 'ComfyUI', category: 'genai', level: 'Mastery', experience: 'Node-based modular workflows, ControlNet, IP-Adapter, LoRAs & latent upscaling', highlighted: true },
+  { name: 'ElevenLabs v3 / v2', category: 'genai', level: 'Mastery', experience: 'Emotional voice tagging, studio-quality narration, and custom voice cloning', highlighted: true },
+  { name: 'ChatGPT & Prompting', category: 'genai', level: 'Mastery', experience: 'System prompt architecture, negative token tuning, scriptwriting & storyboards', highlighted: true },
   { name: 'Adobe Firefly', category: 'genai', level: 'Advanced', experience: 'Commercial generative fill, vector recoloring, concept exploration' },
 
   // Video Production & Post
-  { name: 'Premiere Pro', category: 'video', level: 'Mastery', experience: 'Multicam editing, audio mixing, color correction, dynamic transitions', highlighted: true },
-  { name: 'After Effects', category: 'video', level: 'Mastery', experience: 'Motion graphics, kinetic typography, visual effects, compositing', highlighted: true },
-  { name: 'DaVinci Resolve', category: 'video', level: 'Advanced', experience: 'Color grading, node-based balancing, Fairlight audio workflows', highlighted: true },
+  { name: 'Premiere Pro', category: 'video', level: 'Mastery', experience: 'Multicam editing, audio ducking, rhythm cutting, high-pacing reels', highlighted: true },
+  { name: 'After Effects', category: 'video', level: 'Mastery', experience: 'Kinetic typography, 3D tracking, visual effects compositing, dynamic presets', highlighted: true },
+  { name: 'DaVinci Resolve', category: 'video', level: 'Advanced', experience: 'Color grading, node-based balancing, Fairlight audio mastering', highlighted: true },
 
-  // Graphic Design
-  { name: 'Photoshop', category: 'design', level: 'Mastery', experience: 'Photo manipulation, advanced composite art, digital painting, commercial retouching', highlighted: true },
-  { name: 'Illustrator', category: 'design', level: 'Mastery', experience: 'Vector branding, icon systems, key visual illustration, typography design', highlighted: true },
+  // Graphic Design & Print
+  { name: 'Photoshop', category: 'design', level: 'Mastery', experience: 'Photo manipulation, advanced composite art, commercial retouching', highlighted: true },
+  { name: 'Illustrator', category: 'design', level: 'Mastery', experience: 'Vector branding, icon systems, key visual illustration, typography', highlighted: true },
   { name: 'InDesign', category: 'design', level: 'Advanced', experience: 'Editorial layout, multi-page brochures, print pre-flight production' },
 
-  // Workflow & Specializations
-  { name: 'Prompt Engineering', category: 'workflow', level: 'Mastery', experience: 'Structural token weighting, negative prompt styling, consistent persona seeding', highlighted: true },
-  { name: 'Social Media Management', category: 'workflow', level: 'Mastery', experience: 'Audience growth strategy, reel pacing, thumbnail conversion optimization' },
-  { name: 'Multimedia Office Admin', category: 'workflow', level: 'Mastery', experience: 'Asset organization, delivery scheduling, client communication' }
+  // Creative Specializations & Marketing
+  { name: 'AI Product Photography', category: 'workflow', level: 'Mastery', experience: 'Commercial studio lighting, luxury cosmetic sets, reflection matching', highlighted: true },
+  { name: 'AI UGC Ad Creation', category: 'workflow', level: 'Mastery', experience: 'Direct-response hook architecture, high-CTR performance creatives', highlighted: true },
+  { name: 'Cinematic Color Grading', category: 'workflow', level: 'Mastery', experience: 'Film stock emulation, tone mapping, teal & orange separation' }
 ];
 
 export const BASE_PROJECTS: Project[] = [];
