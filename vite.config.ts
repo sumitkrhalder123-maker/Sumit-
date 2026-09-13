@@ -5,13 +5,14 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   // Determine appropriate base URL:
-  // 1. If BASE_URL is set (e.g. from GitHub Actions configure-pages), use it
+  // 1. If explicitly provided via non-empty BASE_URL (and not just root slash unless it's a root domain), use it
   // 2. If running in GitHub Actions with GITHUB_REPOSITORY (e.g. user/portfolio), use /portfolio/
   // 3. Fallback to './' for local preview or manual relative deployments
   let base = './';
-  if (process.env.BASE_URL) {
-    const b = process.env.BASE_URL.trim();
-    base = b === '' || b === '/' ? '/' : (b.endsWith('/') ? b : `${b}/`);
+  const rawBase = process.env.BASE_URL ? process.env.BASE_URL.trim() : '';
+
+  if (rawBase && rawBase !== '' && rawBase !== '/') {
+    base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
   } else if (process.env.GITHUB_REPOSITORY) {
     const parts = process.env.GITHUB_REPOSITORY.split('/');
     const repo = parts[1];
@@ -20,6 +21,8 @@ export default defineConfig(() => {
     } else if (repo) {
       base = `/${repo}/`;
     }
+  } else if (rawBase === '/') {
+    base = '/';
   }
 
   return {

@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="roofGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="60%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <linearGradient id="indaneCyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="40%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="servoBlack" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#18181b"/>
+      <stop offset="50%" stop-color="#27272a"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Station Platform Background -->
+  <rect width="1200" height="800" fill="#e5e9f0"/>
+
+  <!-- Mountain trees & sky visible beyond station fence -->
+  <rect x="650" y="0" width="550" height="420" fill="#93c5fd" opacity="0.35"/>
+  <g fill="#2d4a3e" opacity="0.6">
+    <polygon points="750,280 780,140 810,280"/>
+    <polygon points="850,300 880,120 910,300"/>
+    <polygon points="980,260 1010,130 1040,260"/>
+    <polygon points="1060,290 1090,150 1120,290"/>
+  </g>
+
+  <!-- Platform Cantilever Overhead Roof Ceiling -->
+  <polygon points="0,0 1200,0 600,280 0,340" fill="url(#roofGrad)" stroke="#94a3b8" stroke-width="2"/>
+  <!-- Hanging vintage railway lanterns -->
+  <g fill="#0f172a">
+    <rect x="420" y="140" width="4" height="25"/>
+    <polygon points="410,165 434,165 428,190 416,190"/>
+    <rect x="430" y="260" width="3" height="20"/>
+    <polygon points="422,280 440,280 436,300 426,300"/>
+  </g>
+
+  <!-- Platform Stone Floor & Red Tile Danger Strip -->
+  <polygon points="0,380 620,380 650,800 0,800" fill="#cbd5e1"/>
+  <!-- Red textured platform safety border strip -->
+  <polygon points="620,380 710,380 970,800 650,800" fill="#b91c1c" opacity="0.85"/>
+  <!-- Rail Track Bed on Right -->
+  <polygon points="710,380 1200,380 1200,800 970,800" fill="#334155"/>
+  <!-- Narrow Gauge Rails -->
+  <line x1="780" y1="380" x2="1080" y2="800" stroke="#94a3b8" stroke-width="6"/>
+  <line x1="840" y1="380" x2="1190" y2="800" stroke="#cbd5e1" stroke-width="6"/>
+
+  <!-- Brown Boxcar Rolling Stock on Track -->
+  <rect x="520" y="320" width="180" height="110" rx="4" fill="#78350f" stroke="#451a03" stroke-width="3"/>
+  <rect x="535" y="335" width="150" height="80" fill="#592408"/>
+  <circle cx="560" cy="435" r="12" fill="#1e293b"/>
+  <circle cx="660" cy="435" r="12" fill="#1e293b"/>
+
+  <!-- Second Pillar: SERVO 4T XTRA Advertisement Wrap -->
+  <g transform="translate(240, 250)">
+    <rect x="0" y="0" width="85" height="260" rx="4" fill="#166534"/>
+    <!-- Wrap Poster -->
+    <rect x="2" y="10" width="81" height="135" rx="3" fill="url(#servoBlack)" stroke="#ea580c" stroke-width="2"/>
+    <rect x="6" y="16" width="73" height="18" fill="#ea580c" rx="2"/>
+    <text x="12" y="29" font-family="system-ui, sans-serif" font-size="9" font-weight="900" fill="#ffffff">SERVO 4T</text>
+    <text x="10" y="44" font-family="system-ui, sans-serif" font-size="7.5" font-weight="800" fill="#facc15">CAN'T DO</text>
+    <text x="10" y="54" font-family="system-ui, sans-serif" font-size="7.5" font-weight="800" fill="#ffffff">WITHOUT IT!</text>
+    <!-- Lubricant bottle graphic -->
+    <rect x="35" y="65" width="32" height="42" rx="3" fill="#ca8a04" stroke="#fef08a" stroke-width="1.5"/>
+    <text x="10" y="125" font-family="system-ui, sans-serif" font-size="6" font-weight="700" fill="#ffffff">IndianOil SERVO</text>
+  </g>
+
+  <!-- Front Prominent Pillar: INDANE Composite LPG Cylinder Wrap -->
+  <g transform="translate(70, 180)">
+    <!-- Base green structural pillar -->
+    <rect x="0" y="0" width="145" height="450" rx="6" fill="#15803d"/>
+    <!-- Indane Wrap Poster Board -->
+    <rect x="3" y="15" width="139" height="260" rx="4" fill="url(#indaneCyan)" stroke="#0284c7" stroke-width="2"/>
+    <!-- Header with Indane logo -->
+    <rect x="8" y="22" width="129" height="34" fill="#ffffff" rx="3"/>
+    <circle cx="24" cy="39" r="10" fill="#ea580c"/>
+    <text x="40" y="38" font-family="system-ui, sans-serif" font-size="12" font-weight="900" fill="#0369a1">Indane</text>
+    <text x="40" y="49" font-family="system-ui, sans-serif" font-size="7" font-weight="700" fill="#334155">IndianOil Corporation</text>
+
+    <!-- Main Headline -->
+    <text x="12" y="72" font-family="system-ui, sans-serif" font-size="10" font-weight="900" fill="#ffffff">Perfect partner</text>
+    <text x="12" y="85" font-family="system-ui, sans-serif" font-size="9" font-weight="800" fill="#f8fafc">for your modern kitchen</text>
+
+    <!-- Cylinder feature bullets -->
+    <g transform="translate(12, 98)" fill="#ffffff" font-family="system-ui, sans-serif" font-size="7" font-weight="600">
+      <circle cx="5" cy="5" r="4" fill="#ea580c"/>
+      <text x="14" y="8">Almost 50% lighter than steel</text>
+      
+      <circle cx="5" cy="22" r="4" fill="#ea580c"/>
+      <text x="14" y="25">Translucent body for level check</text>
+
+      <circle cx="5" cy="39" r="4" fill="#ea580c"/>
+      <text x="14" y="42">Aesthetic look & Rust-free</text>
+
+      <circle cx="5" cy="56" r="4" fill="#ea580c"/>
+      <text x="14" y="59">Available in 5 KG & 10 KG sizes</text>
+    </g>
+
+    <!-- Red Composite Cylinder Illustration -->
+    <rect x="40" y="175" width="65" height="85" rx="14" fill="#dc2626" stroke="#991b1b" stroke-width="3"/>
+    <rect x="48" y="185" width="49" height="60" rx="8" fill="#f87171"/>
+    <circle cx="72.5" cy="180" r="12" fill="#b91c1c"/>
+  </g>
+
+  <!-- Photo Title Stamp Overlay -->
+  <g transform="translate(40, 710)">
+    <rect x="0" y="0" width="510" height="54" rx="10" fill="#0b0f17" opacity="0.9" stroke="#00b4d8" stroke-width="1.5"/>
+    <text x="20" y="24" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#ffffff">INDANE COMPOSITE LPG & SERVO PLATFORM PILLAR CAMPAIGN</text>
+    <text x="20" y="42" font-family="system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#38bdf8">Station Platform Concourse Transit Media • Darjeeling Himalayan Station</text>
+  </g>
+</svg>

@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyMist" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4a5d6e"/>
+      <stop offset="40%" stop-color="#73899a"/>
+      <stop offset="80%" stop-color="#8fa3b3"/>
+      <stop offset="100%" stop-color="#a4b8c6"/>
+    </linearGradient>
+    <linearGradient id="pineHills" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2d3b2f" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#1b251d"/>
+    </linearGradient>
+    <linearGradient id="trainBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e5aa8"/>
+      <stop offset="50%" stop-color="#123d7a"/>
+      <stop offset="100%" stop-color="#0a2652"/>
+    </linearGradient>
+    <linearGradient id="xtraGreen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0f5132"/>
+      <stop offset="50%" stop-color="#198754"/>
+      <stop offset="100%" stop-color="#20c997"/>
+    </linearGradient>
+    <filter id="mistBlur" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+  </defs>
+
+  <!-- Background: Misty Himalayan Mountain Forest -->
+  <rect width="1200" height="800" fill="url(#skyMist)"/>
+  
+  <!-- Fog Layers -->
+  <path d="M0,180 Q300,120 600,160 T1200,140 L1200,800 L0,800 Z" fill="#99adbc" opacity="0.6"/>
+  
+  <!-- Mountain Pine Trees Silhouettes in Fog -->
+  <g fill="#243328" opacity="0.75">
+    <polygon points="50,220 80,100 110,220"/>
+    <polygon points="120,240 150,110 180,240"/>
+    <polygon points="200,260 230,130 260,260"/>
+    <polygon points="450,220 480,90 510,220"/>
+    <polygon points="520,250 550,120 580,250"/>
+    <polygon points="650,230 680,80 710,230"/>
+    <polygon points="720,250 750,100 780,250"/>
+    <polygon points="820,220 850,90 880,220"/>
+    <polygon points="900,260 930,120 960,260"/>
+    <polygon points="1020,230 1050,110 1080,230"/>
+    <polygon points="1100,270 1130,130 1160,270"/>
+  </g>
+
+  <!-- Midground Lush Vegetation & Slope -->
+  <path d="M0,280 Q250,300 500,260 T1200,320 L1200,800 L0,800 Z" fill="url(#pineHills)"/>
+  
+  <!-- Mist band -->
+  <ellipse cx="600" cy="290" rx="650" ry="40" fill="#a4b8c6" opacity="0.5" filter="url(#mistBlur)"/>
+
+  <!-- Mountain Asphalt Highway & Rail track bed -->
+  <path d="M0,520 L1200,480 L1200,800 L0,800 Z" fill="#3a3f47"/>
+  <!-- Wet road sheen reflection -->
+  <path d="M0,570 Q500,540 1200,520 L1200,800 L0,800 Z" fill="#2d3238"/>
+  
+  <!-- Narrow Gauge Railway Tracks -->
+  <line x1="0" y1="535" x2="1200" y2="495" stroke="#5a5f66" stroke-width="6"/>
+  <line x1="0" y1="550" x2="1200" y2="510" stroke="#717882" stroke-width="6"/>
+  <!-- Track ties -->
+  <g stroke="#26292e" stroke-width="4">
+    <line x1="50" y1="530" x2="55" y2="560"/>
+    <line x1="120" y1="527" x2="125" y2="557"/>
+    <line x1="190" y1="524" x2="195" y2="554"/>
+    <line x1="260" y1="521" x2="265" y2="551"/>
+    <line x1="330" y1="518" x2="335" y2="548"/>
+    <line x1="400" y1="515" x2="405" y2="545"/>
+  </g>
+
+  <!-- Passenger Coaches with IndianOil XtraGreen Wrap -->
+  <g transform="translate(680, 420)">
+    <!-- Coach 1 -->
+    <rect x="0" y="20" width="260" height="150" rx="8" fill="#123d7a" stroke="#0a2652" stroke-width="3"/>
+    <!-- Windows -->
+    <rect x="15" y="35" width="40" height="50" rx="4" fill="#698ca8"/>
+    <rect x="65" y="35" width="40" height="50" rx="4" fill="#698ca8"/>
+    <rect x="115" y="35" width="40" height="50" rx="4" fill="#698ca8"/>
+    <rect x="165" y="35" width="40" height="50" rx="4" fill="#698ca8"/>
+    <rect x="215" y="35" width="30" height="50" rx="4" fill="#698ca8"/>
+
+    <!-- IndianOil XtraGreen Branding Banner -->
+    <rect x="10" y="98" width="240" height="42" rx="4" fill="#ffffff"/>
+    <rect x="14" y="102" width="6" height="34" fill="#198754"/>
+    <!-- Indian Oil Flame Logo Mock -->
+    <circle cx="35" cy="119" r="11" fill="#f58220"/>
+    <circle cx="35" cy="119" r="6" fill="#003882"/>
+    <text x="54" y="115" font-family="system-ui, sans-serif" font-size="11" font-weight="900" fill="#0f5132">XTRAGREEN</text>
+    <text x="54" y="128" font-family="system-ui, sans-serif" font-size="7.5" font-weight="700" fill="#333333">MAKE THE WORLD A GREENER PLACE • IndianOil</text>
+
+    <!-- Wheels -->
+    <circle cx="45" cy="175" r="14" fill="#1f2329" stroke="#50565e" stroke-width="4"/>
+    <circle cx="105" cy="175" r="14" fill="#1f2329" stroke="#50565e" stroke-width="4"/>
+    <circle cx="190" cy="175" r="14" fill="#1f2329" stroke="#50565e" stroke-width="4"/>
+  </g>
+
+  <!-- Coach 2 -->
+  <g transform="translate(950, 440)">
+    <rect x="0" y="20" width="230" height="145" rx="8" fill="#123d7a" stroke="#0a2652" stroke-width="3"/>
+    <rect x="15" y="35" width="40" height="48" rx="4" fill="#698ca8"/>
+    <rect x="65" y="35" width="40" height="48" rx="4" fill="#698ca8"/>
+    <rect x="115" y="35" width="40" height="48" rx="4" fill="#698ca8"/>
+    <rect x="165" y="35" width="40" height="48" rx="4" fill="#698ca8"/>
+    <!-- Branding Banner 2 -->
+    <rect x="10" y="96" width="210" height="40" rx="4" fill="#0b1b36" stroke="#f58220" stroke-width="1.5"/>
+    <text x="25" y="115" font-family="system-ui, sans-serif" font-size="10" font-weight="800" fill="#ffc107">SERVO 4T XTRA</text>
+    <text x="25" y="127" font-family="system-ui, sans-serif" font-size="7" font-weight="600" fill="#ffffff">IndianOil Commercial Transit Media</text>
+    <circle cx="45" cy="170" r="14" fill="#1f2329" stroke="#50565e" stroke-width="4"/>
+    <circle cx="170" cy="170" r="14" fill="#1f2329" stroke="#50565e" stroke-width="4"/>
+  </g>
+
+  <!-- Locomotive: Darjeeling Himalayan Railway Blue Diesel Engine #602 (NDM 6) -->
+  <g transform="translate(260, 340)">
+    <!-- Cab Body -->
+    <rect x="250" y="50" width="180" height="200" rx="6" fill="url(#trainBlue)" stroke="#091a33" stroke-width="4"/>
+    <!-- Cab Windows -->
+    <rect x="270" y="70" width="65" height="70" rx="4" fill="#7ba3c4" stroke="#091a33" stroke-width="3"/>
+    <rect x="350" y="70" width="65" height="70" rx="4" fill="#7ba3c4" stroke="#091a33" stroke-width="3"/>
+
+    <!-- Front Engine Hood (Long Bonnet) -->
+    <rect x="30" y="90" width="225" height="160" rx="6" fill="url(#trainBlue)" stroke="#091a33" stroke-width="4"/>
+    <!-- Front Grill -->
+    <rect x="35" y="100" width="85" height="140" rx="4" fill="#1a202c" stroke="#4a5568" stroke-width="2"/>
+    <line x1="45" y1="110" x2="110" y2="110" stroke="#718096" stroke-width="2"/>
+    <line x1="45" y1="130" x2="110" y2="130" stroke="#718096" stroke-width="2"/>
+    <line x1="45" y1="150" x2="110" y2="150" stroke="#718096" stroke-width="2"/>
+    <line x1="45" y1="170" x2="110" y2="170" stroke="#718096" stroke-width="2"/>
+    <line x1="45" y1="190" x2="110" y2="190" stroke="#718096" stroke-width="2"/>
+    <line x1="45" y1="210" x2="110" y2="210" stroke="#718096" stroke-width="2"/>
+
+    <!-- Prominent Top Headlight glowing in mist -->
+    <ellipse cx="65" cy="72" rx="22" ry="18" fill="#fef08a" stroke="#ca8a04" stroke-width="4"/>
+    <circle cx="65" cy="72" r="14" fill="#ffffff"/>
+    <circle cx="65" cy="72" r="30" fill="#fef08a" opacity="0.25" filter="url(#mistBlur)"/>
+
+    <!-- Text: INDIAN RAILWAYS on hood side -->
+    <rect x="130" y="105" width="120" height="26" fill="#082245" rx="3"/>
+    <text x="135" y="123" font-family="system-ui, sans-serif" font-size="11" font-weight="900" fill="#ffffff" letter-spacing="1">INDIAN RAILWAYS</text>
+
+    <!-- Front Red Cowcatcher / Buffer Beam -->
+    <polygon points="10,230 35,220 35,270 10,270" fill="#b91c1c"/>
+    <rect x="25" y="240" width="120" height="36" fill="#dc2626" rx="3" stroke="#7f1d1d" stroke-width="2"/>
+    <text x="35" y="264" font-family="system-ui, sans-serif" font-size="14" font-weight="900" fill="#ffffff">602</text>
+    <text x="75" y="258" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#fef08a">एन डी एम 6</text>
+
+    <!-- Wheels & Bogies -->
+    <rect x="20" y="270" width="410" height="30" fill="#111827"/>
+    <circle cx="80" cy="295" r="22" fill="#374151" stroke="#111827" stroke-width="6"/>
+    <circle cx="160" cy="295" r="22" fill="#374151" stroke="#111827" stroke-width="6"/>
+    <circle cx="310" cy="295" r="22" fill="#374151" stroke="#111827" stroke-width="6"/>
+    <circle cx="380" cy="295" r="22" fill="#374151" stroke="#111827" stroke-width="6"/>
+  </g>
+
+  <!-- Photo Title Stamp Overlay -->
+  <g transform="translate(40, 710)">
+    <rect x="0" y="0" width="460" height="54" rx="10" fill="#0b0f17" opacity="0.9" stroke="#00b4d8" stroke-width="1.5"/>
+    <text x="20" y="24" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#ffffff">INDIAN OIL XTRAGREEN HIMALAYAN RAIL CAMPAIGN</text>
+    <text x="20" y="42" font-family="system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#38bdf8">Darjeeling Himalayan Railway • Locomotive #602 Transit Media Shoot</text>
+  </g>
+</svg>
