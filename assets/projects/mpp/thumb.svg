@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <radialGradient id="luxDark" cx="65%" cy="40%" r="75%">
+      <stop offset="0%" stop-color="#14213d" />
+      <stop offset="50%" stop-color="#0b132b" />
+      <stop offset="100%" stop-color="#050814" />
+    </radialGradient>
+    <linearGradient id="goldText" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="35%" stop-color="#f59e0b" />
+      <stop offset="70%" stop-color="#d97706" />
+      <stop offset="100%" stop-color="#b45309" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Midnight Navy Canvas -->
+  <rect width="100%" height="100%" fill="url(#luxDark)" />
+
+  <!-- Royal Blue Silk Cushion Stack -->
+  <g transform="translate(180, 260)">
+    <!-- Lower Pillow (Dark Navy Silk with Gold Fringe) -->
+    <rect x="0" y="80" width="560" height="150" rx="36" fill="#0f1f44" stroke="#d4af37" stroke-width="2" />
+    <!-- Upper Cushion (Royal Sapphire Velvet with Gold Embroidery) -->
+    <rect x="30" y="0" width="500" height="120" rx="30" fill="#1e3a8a" stroke="#f59e0b" stroke-width="3" />
+    <!-- Gold Embroidered Motif -->
+    <path d="M120 40 Q150 15 180 40 Q210 65 240 40" stroke="#fcd34d" stroke-width="3" fill="none" opacity="0.85" />
+    <path d="M150 25 L150 65" stroke="#fcd34d" stroke-width="2" opacity="0.7" />
+  </g>
+
+  <!-- Baby with Crown Silhouette/Illustration -->
+  <g transform="translate(340, 160)">
+    <!-- Crown -->
+    <path d="M40 30 L55 60 L75 35 L95 60 L110 30 L115 70 L35 70 Z" fill="#fbbf24" stroke="#d97706" stroke-width="2" filter="url(#glow)" />
+    <circle cx="40" cy="30" r="4" fill="#ef4444" />
+    <circle cx="75" cy="35" r="4" fill="#3b82f6" />
+    <circle cx="110" cy="30" r="4" fill="#ef4444" />
+    <!-- Baby Profile/Form -->
+    <circle cx="75" cy="115" r="45" fill="#fde68a" />
+    <path d="M40 145 C40 120 110 120 110 145 C110 180 20 180 40 145 Z" fill="#fde68a" />
+    <!-- Silk White Diaper -->
+    <ellipse cx="65" cy="165" rx="35" ry="20" fill="#ffffff" stroke="#e2e8f0" />
+  </g>
+
+  <!-- Luxury Gold Typography "Throne of Silk" -->
+  <g transform="translate(730, 260)">
+    <text x="0" y="0" fill="url(#goldText)" font-family="'Cinzel', 'Playfair Display', Georgia, serif" font-weight="900" font-size="70" letter-spacing="1">Throne</text>
+    <text x="245" y="-12" fill="#fef08a" font-family="'Cinzel', 'Playfair Display', Georgia, serif" font-style="italic" font-size="34">of</text>
+    <text x="0" y="70" fill="url(#goldText)" font-family="'Cinzel', 'Playfair Display', Georgia, serif" font-weight="900" font-size="82" letter-spacing="3">SILK</text>
+    <text x="2" y="115" fill="#e2e8f0" font-family="'Plus Jakarta Sans', sans-serif" font-weight="500" font-size="22" letter-spacing="1">Nothing but Silk will do.</text>
+  </g>
+
+  <!-- MPP Diaper Package Graphic in bottom right -->
+  <g transform="translate(1020, 500)">
+    <rect width="110" height="130" rx="14" fill="#ffffff" stroke="#3b82f6" stroke-width="3" />
+    <rect width="110" height="40" rx="12" fill="#2563eb" />
+    <text x="55" y="26" fill="#ffffff" font-family="sans-serif" font-weight="900" font-size="14" text-anchor="middle">Pampers</text>
+    <text x="55" y="65" fill="#1e3a8a" font-family="sans-serif" font-weight="800" font-size="16" text-anchor="middle">SILK</text>
+    <text x="55" y="85" fill="#f59e0b" font-family="sans-serif" font-weight="700" font-size="11" text-anchor="middle">Pants</text>
+    <rect x="25" y="98" width="60" height="18" rx="6" fill="#fef3c7" />
+    <text x="55" y="111" fill="#b45309" font-family="sans-serif" font-weight="700" font-size="10" text-anchor="middle">NEW</text>
+  </g>
+
+  <!-- Brand Corner Tag -->
+  <g transform="translate(60, 50)">
+    <rect width="140" height="38" rx="8" fill="#1e293b" stroke="#475569" />
+    <text x="70" y="24" fill="#38bdf8" font-family="sans-serif" font-weight="900" font-size="16" text-anchor="middle" letter-spacing="2">MPP</text>
+  </g>
+</svg>

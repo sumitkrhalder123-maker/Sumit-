@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sumit Kumer Halder - Portfolio</title>
+    <script>
+      // Single Page App fallback for GitHub Pages
+      // Redirect cleanly back to the application base without infinite loops
+      try {
+        var path = window.location.pathname;
+        var segments = path.split('/').filter(Boolean);
+        var isGitHub = window.location.hostname.endsWith('github.io');
+        // If hosted on https://<username>.github.io/<repo-name>/, preserve repo segment
+        if (isGitHub && segments.length >= 1 && !window.location.hostname.startsWith(segments[0])) {
+          window.location.replace('/' + segments[0] + '/');
+        } else {
+          window.location.replace('./');
+        }
+      } catch (e) {
+        window.location.href = '/';
+      }
+    </script>
+  </head>
+  <body style="background-color: #070a11; color: #f1f5f9; font-family: system-ui, -apple-system, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; text-align: center;">
+    <div>
+      <h2 style="font-size: 20px; font-weight: 600; color: #38bdf8; margin-bottom: 8px;">Loading Portfolio...</h2>
+      <p style="font-size: 14px; color: #94a3b8;">Redirecting you to the home page...</p>
+    </div>
+  </body>
+</html>

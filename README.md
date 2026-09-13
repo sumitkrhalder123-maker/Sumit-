@@ -4,33 +4,21 @@ Professional portfolio and commercial showcase of **Sumit Kumar Halder (Graphics
 
 ---
 
-## 🚀 GitHub Pages Deployment (Fixing "Loading..." Screen)
+## 🚀 GitHub Pages Deployment (Zero-Config Supported)
 
-If your GitHub Pages site is stuck on the loading screen:
-> *"LOADING GRAPHICS SUMIT PORTFOLIO..."*
+This repository is configured so it can be deployed on GitHub Pages using **any** setup:
 
-This occurs because modern React/Vite applications must be served from their compiled build artifacts rather than raw TypeScript source files. You can activate your site in **under 30 seconds** using either of the two methods below:
-
-### Method 1: Using GitHub Actions (Recommended — 100% Automated)
-1. Go to your repository on GitHub: `https://github.com/<your-username>/<repo-name>`
-2. Click **Settings** (gear icon at the top).
-3. In the left navigation menu, click **Pages** (under "Code and automation").
-4. Under **Build and deployment** &rarr; **Source**, click the dropdown and select **"GitHub Actions"**.
-5. Click the **Actions** tab at the top of your repository to view the automated build running.
-6. Once green (takes ~45 seconds), your live site will be active at:
-   `https://<your-username>.github.io/<repo-name>/`
-
----
-
-### Method 2: Deploy from `/docs` Folder (No GitHub Actions Required)
-This repository already includes the pre-compiled production build inside the `/docs` folder!
+### Method 1: Default Branch Deployment (Zero-Config)
+The repository root now contains pre-compiled assets (`/assets/index.js` and `/assets/index.css`), `.nojekyll`, and `404.html`:
 1. Go to repository **Settings** &rarr; **Pages**.
-2. Under **Build and deployment** &rarr; **Source**, leave or set it to **"Deploy from a branch"**.
-3. Under **Branch**:
-   - Select `main` (or `master`)
-   - Select `/docs` folder (instead of `/ (root)`)
+2. Under **Build and deployment** &rarr; **Source**: Select **"Deploy from a branch"**.
+3. Under **Branch**: Select `main` (or `master`) and `/ (root)` folder (or `/docs`).
 4. Click **Save**.
-5. GitHub Pages will immediately serve the pre-compiled site at `https://<your-username>.github.io/<repo-name>/`!
+
+### Method 2: Automated GitHub Actions (Recommended for CI/CD)
+1. Go to repository **Settings** &rarr; **Pages**.
+2. Under **Build and deployment** &rarr; **Source**: Select **"GitHub Actions"**.
+3. The included workflow (`.github/workflows/deploy.yml`) will automatically build and publish the site on every push!
 
 ---
 
