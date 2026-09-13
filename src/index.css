@@ -43,6 +43,11 @@
   animation: spin-slow 12s linear infinite;
 }
 
+.crisp-image {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
 @media print {
   body {
     background: #ffffff !important;

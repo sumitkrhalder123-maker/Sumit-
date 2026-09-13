@@ -11,6 +11,7 @@ import { ContactSection } from './components/ContactSection';
 import { ResumeModal } from './components/ResumeModal';
 import { Footer } from './components/Footer';
 import { SnowBackground } from './components/SnowBackground';
+import { ChatBotWidget } from './components/ChatBotWidget';
 import { Project } from './types';
 import { useProjectsStorage } from './hooks/useProjectsStorage';
 
@@ -80,6 +81,9 @@ export default function App() {
         isOpen={isResumeOpen}
         onClose={() => setIsResumeOpen(false)}
       />
+
+      {/* Floating Chat Bot Widget in Right-Side Bottom Corner */}
+      <ChatBotWidget />
     </div>
   );
 }

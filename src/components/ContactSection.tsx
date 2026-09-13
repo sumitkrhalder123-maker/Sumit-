@@ -25,7 +25,7 @@ import {
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { OfficeHologram } from './OfficeHologram';
 import { IndianThemeMap } from './IndianThemeMap';
-import { TextImageGenerator } from './TextImageGenerator';
+import { RetroSnakeGame } from './RetroSnakeGame';
 
 interface CurrencyOption {
   code: string;
@@ -631,41 +631,42 @@ export const ContactSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column (6 cols): 3D HOLOGRAM OF GRAPHICS SUMIT OFFICE */}
-          <div className="lg:col-span-6 space-y-4">
-            <div className="flex items-center justify-between px-1">
-              <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-cyan-400" />
-                <span className="text-sm font-bold text-white">3D Hologram: Graphics Sumit Studio</span>
+          {/* Right Column (6 cols): 3D HOLOGRAM OF GRAPHICS SUMIT OFFICE & RETRO NOKIA CYBER SNAKE */}
+          <div className="lg:col-span-6 space-y-6">
+            {/* Top Card: 3D Hologram Studio & Capabilities */}
+            <div className="p-6 sm:p-7 rounded-2xl bg-[#0e1422] border border-slate-800 shadow-xl space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-cyan-400" />
+                  <span className="text-sm font-bold text-white">3D Hologram: Graphics Sumit Studio</span>
+                </div>
+                <span className="text-[11px] text-slate-400 font-mono">
+                  INTERACTIVE 360° PROJECTION
+                </span>
               </div>
-              <span className="text-[11px] text-slate-400 font-mono">
-                INTERACTIVE 360° PROJECTION
-              </span>
+
+              {/* The 3D Hologram Component */}
+              <OfficeHologram />
+
+              {/* Studio Capabilities Overview */}
+              <div className="grid grid-cols-3 gap-3">
+                <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-center">
+                  <div className="text-xs font-bold text-cyan-400">4K / 60FPS</div>
+                  <div className="text-[10px] text-slate-400 mt-0.5">Video Timeline</div>
+                </div>
+                <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-center">
+                  <div className="text-xs font-bold text-emerald-400">Dual RTX GPU</div>
+                  <div className="text-[10px] text-slate-400 mt-0.5">Gen AI Render Node</div>
+                </div>
+                <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-center">
+                  <div className="text-xs font-bold text-purple-400">Dum Dum HQ</div>
+                  <div className="text-[10px] text-slate-400 mt-0.5">Kolkata, India</div>
+                </div>
+              </div>
             </div>
 
-            {/* The 3D Hologram Component */}
-            <OfficeHologram />
-
-            {/* Studio Capabilities Overview */}
-            <div className="grid grid-cols-3 gap-3">
-              <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-center">
-                <div className="text-xs font-bold text-cyan-400">4K / 60FPS</div>
-                <div className="text-[10px] text-slate-400 mt-0.5">Video Timeline</div>
-              </div>
-              <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-center">
-                <div className="text-xs font-bold text-emerald-400">Dual RTX GPU</div>
-                <div className="text-[10px] text-slate-400 mt-0.5">Gen AI Render Node</div>
-              </div>
-              <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-center">
-                <div className="text-xs font-bold text-purple-400">Dum Dum HQ</div>
-                <div className="text-[10px] text-slate-400 mt-0.5">Kolkata, India</div>
-              </div>
-            </div>
-
-            {/* Live Free Text To Image Generator with Reference Image Upload */}
-            <div className="pt-2 space-y-3">
-              <TextImageGenerator />
-            </div>
+            {/* Bottom Card: Nokia Retro Cyber Snake (Compact & Themed) */}
+            <RetroSnakeGame />
           </div>
         </div>
 

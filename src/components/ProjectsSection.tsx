@@ -11,7 +11,8 @@ import {
   Building,
   FolderOpen,
   Camera,
-  ExternalLink
+  ExternalLink,
+  CheckCircle2
 } from 'lucide-react';
 import { CategoryType, Project } from '../types';
 import { getVideoInfo } from '../utils/mediaUtils';
@@ -49,66 +50,89 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-cyan-500/5 blur-[120px] pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header with Full Portfolio Canva CTA */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-3">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Client Showcase & Portfolio</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Selected Works & Creative Case Studies
-            </h2>
-            <p className="mt-3 text-sm sm:text-base text-slate-300">
-              Commercial Gen AI videos, photorealistic imagery, viral brand systems, and high-cadence edits created for real corporate clients and studios.
-            </p>
+        {/* Section Header */}
+        <div className="max-w-3xl mb-8">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-900 border border-cyan-500/25 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-3 shadow-lg shadow-cyan-950/20">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Client Showcase & Portfolio</span>
           </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+            Selected Works & Creative Case Studies
+          </h2>
+          <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
+            Commercial Gen AI videos, photorealistic imagery, viral brand systems, and high-cadence edits created for real corporate clients and studios.
+          </p>
+        </div>
 
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
+        {/* SINGLE HIGH-END MASTER PORTFOLIO SHOWCASE BANNER */}
+        <div className="mb-12 relative rounded-2xl p-[1px] bg-gradient-to-r from-cyan-500/40 via-blue-500/30 to-purple-500/40 shadow-2xl shadow-cyan-950/30 overflow-hidden group">
+          {/* Ambient background blur inside card */}
+          <div className="absolute -top-24 -right-24 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-cyan-500/20 transition-all duration-700" />
+          <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-purple-500/20 transition-all duration-700" />
+
+          <div className="relative rounded-2xl bg-gradient-to-r from-[#090e18]/95 via-[#0c1424]/95 to-[#0a101d]/95 p-5 sm:p-7 backdrop-blur-xl flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+            <div className="flex items-start sm:items-center gap-4 sm:gap-5">
+              <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-cyan-500/20 via-blue-600/20 to-purple-600/20 border border-cyan-400/30 flex items-center justify-center text-cyan-300 shrink-0 shadow-lg shadow-cyan-500/10 group-hover:scale-105 group-hover:border-cyan-400/50 transition-all duration-300">
+                <ExternalLink className="w-7 h-7 text-cyan-400 group-hover:rotate-12 transition-transform duration-300" />
+                <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-cyan-500"></span>
+                </span>
+              </div>
+
+              <div>
+                <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                  <span className="text-xs font-mono font-bold tracking-wider text-cyan-400 uppercase">
+                    Live Master Presentation Deck
+                  </span>
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+                    <CheckCircle2 className="w-3 h-3" />
+                    <span>Canva Verified</span>
+                  </span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-cyan-200 transition-colors">
+                  Explore Full Interactive Portfolio & Client Decks
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-2xl leading-relaxed">
+                  Direct access to complete client deliverables, uncompressed 4K video reels, GenAI pitch decks, and brand identity systems in ultra high resolution.
+                </p>
+
+                {/* Badges */}
+                <div className="flex flex-wrap items-center gap-2 mt-3 text-[11px] text-slate-400 font-medium">
+                  <span className="px-2 py-0.5 rounded bg-slate-900/90 text-cyan-300 border border-cyan-500/20">
+                    4K Video Reels
+                  </span>
+                  <span className="px-2 py-0.5 rounded bg-slate-900/90 text-purple-300 border border-purple-500/20">
+                    GenAI Pitch Decks
+                  </span>
+                  <span className="px-2 py-0.5 rounded bg-slate-900/90 text-blue-300 border border-blue-500/20">
+                    Brand Identity Guides
+                  </span>
+                  <span className="hidden sm:inline-block px-2 py-0.5 rounded bg-slate-900/90 text-emerald-300 border border-emerald-500/20">
+                    Commercial Ad Campaigns
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* The 1 and ONLY CTA Link */}
             <a
               href={FULL_PORTFOLIO_CANVA_URL}
               target="_blank"
               rel="noopener noreferrer"
-              id="btn-click-here-full-portfolio"
-              className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 text-white font-bold text-sm shadow-xl shadow-cyan-500/30 hover:shadow-cyan-500/50 hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 border border-cyan-400/40 group"
+              id="btn-single-full-portfolio"
+              className="relative inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl font-bold text-sm text-white overflow-hidden shadow-xl shadow-cyan-500/25 hover:shadow-cyan-400/40 hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 group/btn shrink-0 w-full lg:w-auto"
             >
-              <span>Click Here To See Full Portfolio</span>
-              <ExternalLink className="w-4 h-4 text-cyan-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              {/* Vibrant gradient background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 group-hover/btn:from-cyan-400 group-hover/btn:via-blue-500 group-hover/btn:to-indigo-500 transition-all duration-300" />
+
+              {/* Shimmer light sweep */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000 ease-out" />
+
+              <span className="relative z-10 font-bold tracking-wide">Open Full Portfolio</span>
+              <ExternalLink className="relative z-10 w-4 h-4 text-cyan-100 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
             </a>
           </div>
-        </div>
-
-        {/* Interactive Canva Presentation Deck Banner */}
-        <div className="mb-10 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-cyan-950/40 via-blue-950/30 to-indigo-950/40 border border-cyan-500/30 backdrop-blur-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-lg shadow-cyan-500/5">
-          <div className="flex items-center gap-3.5">
-            <div className="w-11 h-11 rounded-xl bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-300 shrink-0">
-              <ExternalLink className="w-5 h-5 text-cyan-400" />
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider">
-                  Live Master Presentation Deck
-                </span>
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
-                  Canva Verified
-                </span>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-200 mt-0.5">
-                Explore complete campaign assets, high-res deliverables, and creative direction case studies in high definition.
-              </p>
-            </div>
-          </div>
-
-          <a
-            href={FULL_PORTFOLIO_CANVA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            id="btn-canva-deck-banner"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-bold text-xs uppercase tracking-wider transition-all shadow-md hover:shadow-cyan-400/25 whitespace-nowrap"
-          >
-            <span>Click Here To See Full Portfolio</span>
-            <ExternalLink className="w-3.5 h-3.5" />
-          </a>
         </div>
 
         {/* Category Filters (only shown if there are projects) */}
@@ -245,30 +269,6 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
             })}
           </div>
         )}
-
-        {/* Bottom CTA for Master Presentation Deck on Canva */}
-        <div className="mt-14 p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-[#0f1523] to-[#0a0d16] border border-cyan-500/20 text-center max-w-3xl mx-auto flex flex-col items-center shadow-xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-3">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Comprehensive Creative Archive</span>
-          </div>
-          <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
-            Looking to Explore the Complete Portfolio Presentation?
-          </h3>
-          <p className="text-xs sm:text-sm text-slate-300 mb-6 max-w-lg leading-relaxed">
-            Browse high-resolution client brand decks, extended commercial video reels, Gen AI concept explorations, and creative direction workflows on Canva.
-          </p>
-          <a
-            href={FULL_PORTFOLIO_CANVA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            id="btn-click-here-full-portfolio-bottom"
-            className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-sm shadow-xl shadow-cyan-500/25 transition-all hover:scale-[1.02] active:scale-[0.98] border border-cyan-400/30 group"
-          >
-            <span>Click Here To See Full Portfolio</span>
-            <ExternalLink className="w-4 h-4 text-cyan-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </a>
-        </div>
       </div>
     </section>
   );
